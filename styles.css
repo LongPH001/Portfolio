@@ -427,26 +427,7 @@ body {
     }
 }
 
-/* MacBook Pro 13-inch (~1280px width) */
-@media (max-width: 1280px) {
-    .hero-text {
-        font-size: 5vw;
-        text-align: center;
-    }
-    .description {
-        max-width: 80%;
-        text-align: center;
-    }
-    .train-track {
-        width: 85%;
-    }
-    .train-car {
-        font-size: 1.5vw;
-    }
-    .about-container {
-        width: 85%;
-    }
-}
+
 
 /* Mobile & Tablet (~768px width) */
 @media (max-width: 768px) {
