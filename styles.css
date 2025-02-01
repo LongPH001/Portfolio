@@ -224,7 +224,8 @@ body {
 /* TRAIN TRACK CONTAINER */
 /* ============================== */
 .train-track {
-    width: 100%;
+    width: 100vw;
+    max-width: 100%;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 10px 0;
@@ -232,7 +233,50 @@ body {
     bottom: 450px; /* Adjust position */
     left: 0;
     white-space: nowrap;
+    justify-content: center; /* Centers the train inside */
+    display: flex;
 }
+
+
+
+
+/* ============================== */
+/* TRAIN MOVEMENT */
+/* ============================== */
+.train {
+    display: flex;
+    gap: 10px; /* Space between train cars */
+    animation: train-move 14s linear infinite; /* Continuous scrolling */
+    width: 100%; /* Ensures it takes up full width */
+}
+
+/* TRAIN CARRIAGES */
+.train-car {
+    background: #ffcc00; /* Carriages color */
+    color: black;
+    padding: 10px 20px;
+    font-size: 1vw; /* Scales dynamically */
+    font-weight: bold;
+    border-radius: 5px;
+    white-space: nowrap;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Adjustments for Ultra-Wide Screens (34-inch and above) */
+@media (min-width: 2560px) {
+    .train-track {
+        width: 100vw; /* Ensures full-width coverage */
+        max-width: 100%;
+    }
+    .train {
+        width: 100%; /* Full width train */
+    }
+    .train-car {
+        font-size: 1.2vw; /* Increase font size for better visibility */
+        padding: 15px 25px; /* Adjust padding for better appearance */
+    }
+}
+
 
 /* ============================== */
 /* TRAIN MOVEMENT */
@@ -361,93 +405,67 @@ body {
     color: rgba(0, 0, 0, 0.8); /* Softer black */
 }
 
-/* Make the navbar elements more compact on small screens */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 0;
-    }
+/* ============================== */
+/* RESPONSIVE MEDIA QUERIES */
+/* ============================== */
 
-    .menu-project-container {
-        margin-left: 0;
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* Adjust train track position for smaller screens */
-@media (max-width: 768px) {
-    .train-track {
-        bottom: 5vh;
-        padding: 5px 0;
-    }
-
-    .train-car {
-        font-size: 14px;
-        padding: 5px 10px;
-    }
-}
-
-/* Adjust layout on mobile devices */
-@media (max-width: 768px) {
-    .description, .about-container {
-        max-width: 95%;
-        font-size: 18px;
-    }
-}
-
-/* ============================ */
-/* MACBOOK PRO 13-INCH FIX (1280px - 1440px) */
-/* ============================ */
-@media (max-width: 1440px) {
+/* Ultra-Wide Screens (34-inch and above) */
+@media (min-width: 2560px) {
     .hero-text {
-        left: 25vw; /* Adjusted from 35vw */
-        top: 10vh; /* Adjusted for better centering */
-        font-size: 6vw; /* Reduce size slightly */
+        font-size: 4vw; /* Reduce font size */
+        max-width: 1000px;
     }
-
-    .description {
-        left: 55vw; /* Adjust to prevent overlap */
-        top: 40vh; /* Push down slightly */
-        max-width: 350px;
-        font-size: 18px; /* Smaller text */
-    }
-
     .train-track {
-        bottom: 8vh; /* Lower the train bar */
-        padding: 5px 0;
+        max-width: 1400px;
     }
-
     .train-car {
-        font-size: 14px;
-        padding: 5px 12px;
+        font-size: 1.2vw;
+        padding: 12px 18px;
     }
-
     .about-container {
-        max-width: 700px;
-        margin: 100px auto; /* Center and keep spacing */
-        font-size: 18px;
+        max-width: 1200px;
     }
 }
 
-/* ============================ */
-/* MACBOOK AIR (Retina) 1280px WIDTH */
-/* ============================ */
+/* MacBook Pro 13-inch (~1280px width) */
 @media (max-width: 1280px) {
     .hero-text {
-        left: 20vw; /* Adjusted for smaller screens */
-        font-size: 5.5vw;
+        font-size: 5vw;
+        text-align: center;
     }
-
     .description {
-        left: 50vw;
-        max-width: 320px;
-        font-size: 16px;
+        max-width: 80%;
+        text-align: center;
     }
-
     .train-track {
-        bottom: 6vh; /* Push it down */
+        width: 85%;
+    }
+    .train-car {
+        font-size: 1.5vw;
+    }
+    .about-container {
+        width: 85%;
     }
 }
 
+/* Mobile & Tablet (~768px width) */
+@media (max-width: 768px) {
+    .hero-text {
+        font-size: 6vw;
+        text-align: center;
+    }
+    .description {
+        max-width: 90%;
+        text-align: center;
+    }
+    .train-track {
+        width: 100%;
+    }
+    .train-car {
+        font-size: 2vw;
+        padding: 8px 12px;
+    }
+    .about-container {
+        width: 95%;
+    }
+}
