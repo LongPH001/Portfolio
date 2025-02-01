@@ -398,25 +398,27 @@ body {
 }
 
 /* ============================== */
-/* MEDIA QUERIES FOR MACBOOKS */
+/* FIX TRAIN TRACK OVERLAP ON MACBOOK */
 /* ============================== */
 
 /* MacBook Pro 13" - 1280px */
 @media (max-width: 1280px) {
     .hero-text {
-        font-size: 5.5vw;
-        left: 25vw;
-        top: 12vh;
+        font-size: 5vw; /* Reduce text size */
+        left: 15vw; /* Center it more */
+        top: 10vh; /* Move it up */
     }
 
     .description {
-        left: 50vw;
+        left: 50vw; /* Align with hero text */
         font-size: 18px;
+        text-align: left;
     }
 
     .train-track {
         position: relative; /* Change from absolute to relative */
-        margin-top: 50px; /* Add space below hero text */
+        margin-top: 200px; /* Add space below hero text */
+        bottom: initial;
     }
 
     .train {
@@ -424,49 +426,31 @@ body {
     }
 }
 
-/* MacBook Pro 13" - 1024px */
+/* MacBook Air (M1/M2) - 1024px */
 @media (max-width: 1024px) {
     .hero-text {
-        font-size: 5vw;
-        left: 20vw;
-        top: 10vh;
+        font-size: 4.5vw; /* Reduce size further */
+        left: 10vw;
+        top: 8vh;
         text-align: center;
     }
 
     .description {
-        left: 40vw;
-        font-size: 17px;
+        left: 45vw;
+        font-size: 16px;
         text-align: center;
     }
 
     .train-track {
-        bottom: initial;
         position: relative;
-        margin-top: 80px;
+        bottom: initial;
+        margin-top: 220px;
     }
 
     .about-container {
-        margin-top: 80px;
+        margin-top: 100px;
         text-align: center;
         max-width: 85%;
     }
 }
 
-/* MacBook Air (M1/M2) - 820px */
-@media (max-width: 820px) {
-    .hero-text {
-        font-size: 4.5vw;
-        left: 15vw;
-        top: 10vh;
-        text-align: center;
-    }
-
-    .description {
-        left: 30vw;
-        font-size: 16px;
-    }
-
-    .train-track {
-        margin-top: 100px;
-    }
-}
