@@ -1,0 +1,319 @@
+/* ============================== */
+/* GENERAL RESET */
+/* ============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ============================== */
+/* THEME VARIABLES */
+/* ============================== */
+:root {
+    --bg-color: black;
+    --text-color: white;
+    --highlight-color: #ffcc00;
+}
+
+/* Light Mode Variables */
+.light-mode {
+    --bg-color: white;
+    --text-color: black;
+    --highlight-color: #ff6600;
+}
+
+/* ============================== */
+/* BODY STYLING */
+/* ============================== */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* ============================== */
+/* NAVBAR STYLING */
+/* ============================== */
+.navbar {
+    background-color: var(--bg-color);
+    height: 60px;
+    display: flex;
+    justify-content: space-between; /* Pushes left, center, and right elements */
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Menu & Project Link */
+.menu-project-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+/* Project Text */
+.nav-text {
+    color: var(--text-color);
+    font-size: 18px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-text:hover {
+    opacity: 0.8;
+}
+
+/* ============================== */
+/* BURGER MENU */
+/* ============================== */
+.menu-icon {
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: var(--bg-color);
+    width: 150px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Show dropdown when hovering */
+.menu-container:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dropdown Menu Links */
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #1d1a1a;
+}
+
+/* ============================== */
+/* HERO TEXT */
+/* ============================== */
+.hero-text {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 8vw;
+    line-height: 0.85;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 35vw;
+    top: 20vh;
+}
+
+/* Individual Line Adjustments */
+.line:nth-child(1) {
+    letter-spacing: -3px;
+    transform: translateX(-10px);
+    cursor: pointer;
+}
+
+.line:nth-child(2) {
+    letter-spacing: -2px;
+    transform: translateX(60px);
+    cursor: pointer;
+}
+
+.line:nth-child(3) {
+    letter-spacing: -4px;
+    transform: translateX(-30px);
+    cursor: pointer;
+}
+
+/* Text Hover Effects */
+.line {
+    transition: all 0.3s ease-in-out;
+}
+
+.line:hover {
+    color: var(--highlight-color);
+    transform: scale(1.1);
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+/* ============================== */
+/* TOGGLE BUTTON */
+/* ============================== */
+#mode-toggle {
+    position: absolute;
+    top: 10px;
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    background: var(--highlight-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#mode-toggle:hover {
+    background: var(--text-color);
+    color: var(--highlight-color);
+}
+
+.mode-containter {
+    flex-grow: 1;
+    display: flex;
+}
+
+.menu-project-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto; /* Pushes the Project text to the far right */
+}
+
+.description {
+    font-family: 'Poppin', sans-serif;
+    max-width: 400px; /* Set width for readability */
+    color: rgba(255, 255, 255, 0.8); /* Soft white */
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    position: absolute;
+    top: 45vh; /* Position below hero text */
+    left: 60vw;
+    text-align: left;
+}
+
+/* Light Mode Support */
+.light-mode .description {
+    color: rgba(0, 0, 0, 0.8); /* Soft black */
+}
+
+/* ============================== */
+/* TRAIN TRACK CONTAINER */
+/* ============================== */
+.train-track {
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 0;
+    position: absolute;
+    bottom: 450px; /* Adjust position */
+    left: 0;
+    white-space: nowrap;
+}
+
+/* ============================== */
+/* TRAIN MOVEMENT */
+/* ============================== */
+.train {
+    display: flex;
+    gap: 10px; /* Space between train cars */
+    animation: train-move 10s linear infinite; /* Continuous scrolling */
+}
+
+/* TRAIN ENGINE */
+.train-engine {
+    font-size: 32px; /* Bigger engine */
+    position: relative;
+}
+
+/* TRAIN CARRIAGES */
+.train-car {
+    background: #ffcc00; /* Carriages color */
+    color: black;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+/* ============================== */
+/* SMOKE EFFECT */
+/* ============================== */
+.smoke {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0;
+    animation: smoke-puff 3s ease-in-out infinite;
+}
+
+/* Different smoke puffs with slight delays */
+.puff1 {
+    left: 10px;
+    animation-delay: 0s;
+}
+.puff2 {
+    left: 20px;
+    animation-delay: 0.5s;
+}
+.puff3 {
+    left: 30px;
+    animation-delay: 1s;
+}
+
+/* ============================== */
+/* SMOKE PUFFING ANIMATION */
+/* ============================== */
+@keyframes smoke-puff {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-20px) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-40px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* ============================== */
+/* TRAIN MOVEMENT ANIMATION */
+/* ============================== */
+@keyframes train-move {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Light Mode Support */
+.light-mode .train-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
