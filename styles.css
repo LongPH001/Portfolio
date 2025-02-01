@@ -397,60 +397,57 @@ body {
     }
 }
 
-/* ============================== */
-/* FIX TRAIN TRACK OVERLAP ON MACBOOK */
-/* ============================== */
-
-/* MacBook Pro 13" - 1280px */
-@media (max-width: 1280px) {
+/* ============================ */
+/* MACBOOK PRO 13-INCH FIX (1280px - 1440px) */
+/* ============================ */
+@media (max-width: 1440px) {
     .hero-text {
-        font-size: 5vw; /* Reduce text size */
-        left: 15vw; /* Center it more */
-        top: 10vh; /* Move it up */
+        left: 25vw; /* Adjusted from 35vw */
+        top: 10vh; /* Adjusted for better centering */
+        font-size: 6vw; /* Reduce size slightly */
     }
 
     .description {
-        left: 50vw; /* Align with hero text */
-        font-size: 18px;
-        text-align: left;
+        left: 55vw; /* Adjust to prevent overlap */
+        top: 40vh; /* Push down slightly */
+        max-width: 350px;
+        font-size: 18px; /* Smaller text */
     }
 
     .train-track {
-        position: relative; /* Change from absolute to relative */
-        margin-top: 200px; /* Add space below hero text */
-        bottom: initial;
+        bottom: 8vh; /* Lower the train bar */
+        padding: 5px 0;
     }
 
-    .train {
-        animation: train-move 12s linear infinite; /* Adjust animation speed */
-    }
-}
-
-/* MacBook Air (M1/M2) - 1024px */
-@media (max-width: 1024px) {
-    .hero-text {
-        font-size: 4.5vw; /* Reduce size further */
-        left: 10vw;
-        top: 8vh;
-        text-align: center;
-    }
-
-    .description {
-        left: 45vw;
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .train-track {
-        position: relative;
-        bottom: initial;
-        margin-top: 220px;
+    .train-car {
+        font-size: 14px;
+        padding: 5px 12px;
     }
 
     .about-container {
-        margin-top: 100px;
-        text-align: center;
-        max-width: 85%;
+        max-width: 700px;
+        margin: 100px auto; /* Center and keep spacing */
+        font-size: 18px;
+    }
+}
+
+/* ============================ */
+/* MACBOOK AIR (Retina) 1280px WIDTH */
+/* ============================ */
+@media (max-width: 1280px) {
+    .hero-text {
+        left: 20vw; /* Adjusted for smaller screens */
+        font-size: 5.5vw;
+    }
+
+    .description {
+        left: 50vw;
+        max-width: 320px;
+        font-size: 16px;
+    }
+
+    .train-track {
+        bottom: 6vh; /* Push it down */
     }
 }
 
