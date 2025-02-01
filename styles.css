@@ -46,6 +46,7 @@ body {
     padding: 0 20px;
     position: relative;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 /* Logo */
@@ -127,7 +128,7 @@ body {
 .hero-text {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 8.2vw;
+    font-size: 7vw;
     line-height: 0.85;
     text-align: left;
     display: flex;
@@ -358,4 +359,40 @@ body {
 /* Light Mode Support */
 .light-mode .about-container p {
     color: rgba(0, 0, 0, 0.8); /* Softer black */
+}
+
+/* Make the navbar elements more compact on small screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .menu-project-container {
+        margin-left: 0;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Adjust train track position for smaller screens */
+@media (max-width: 768px) {
+    .train-track {
+        bottom: 5vh;
+        padding: 5px 0;
+    }
+
+    .train-car {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+}
+
+/* Adjust layout on mobile devices */
+@media (max-width: 768px) {
+    .description, .about-container {
+        max-width: 95%;
+        font-size: 18px;
+    }
 }
