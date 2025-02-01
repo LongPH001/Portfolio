@@ -30,7 +30,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    display: flex;
+    display: block; /* Change from flex to block */
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -127,14 +127,14 @@ body {
 .hero-text {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 8vw;
+    font-size: 8.2vw;
     line-height: 0.85;
     text-align: left;
     display: flex;
     flex-direction: column;
     position: absolute;
     left: 35vw;
-    top: 20vh;
+    top: 15vh;
 }
 
 /* Individual Line Adjustments */
@@ -208,9 +208,9 @@ body {
     font-size: 24px;
     font-weight: 500;
     line-height: 1.2;
-    position: absolute;
-    top: 45vh; /* Position below hero text */
-    left: 60vw;
+    position: relative;
+    top: 37vh; /* Position below hero text */
+    left: 70vw;
     text-align: left;
 }
 
@@ -239,7 +239,7 @@ body {
 .train {
     display: flex;
     gap: 10px; /* Space between train cars */
-    animation: train-move 10s linear infinite; /* Continuous scrolling */
+    animation: train-move 14s linear infinite; /* Continuous scrolling */
 }
 
 /* TRAIN ENGINE */
@@ -257,6 +257,19 @@ body {
     font-weight: bold;
     border-radius: 5px;
     white-space: nowrap;
+    transition: background 0.3s ease-in-out, color 0.3 ease-in-out;
+}
+/* Hover effect - Dark Mode */
+.train-car:hover {
+    background: white; /* Change to white */
+    color: black; /* Text turns black */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Hover effect - Light Mode */
+.light-mode .train-car:hover {
+    background: #ff6600; /* Change to orange in light mode */
+    color: white; /* Text turns white */
 }
 
 /* ============================== */
@@ -313,7 +326,36 @@ body {
     }
 }
 
+/* Change color in Light Mode */
+.light-mode .train-car {
+    background: black; /* Black background in white mode */
+    color: white; /* White text */
+}
+
+/* About Section */
+.about-container {
+    max-width: 800px; /* Control width for readability */
+    margin: 800px auto; /* Center horizontally with spacing */
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    top: 80;
+}
+
+.about-container h2 {
+    font-size: 36px; /* Larger heading */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.about-container p {
+    font-size: 20px; /* Adjust paragraph font size */
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8); /* Softer white */
+}
+
 /* Light Mode Support */
-.light-mode .train-track {
-    background-color: rgba(0, 0, 0, 0.1);
+.light-mode .about-container p {
+    color: rgba(0, 0, 0, 0.8); /* Softer black */
 }
