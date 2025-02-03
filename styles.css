@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+  }
 /* ============================== */
 /* GENERAL RESET */
 /* ============================== */
@@ -30,7 +33,6 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    display: block; /* Change from flex to block */
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -122,47 +124,47 @@ body {
     background-color: #1d1a1a;
 }
 
-/* ============================== */
+
 /* HERO TEXT */
-/* ============================== */
 .hero-text {
+    display: block;
+    position: relative;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 7vw;
+    font-size: 5vw;
     line-height: 0.85;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    left: 35vw;
-    top: 15vh;
+    text-wrap: balance;
+    margin-top: 5rem;
+    line-height: 0.9;
+    left: 40rem;
+   
 }
 
 /* Individual Line Adjustments */
-.line:nth-child(1) {
+.text:nth-child(1) {
     letter-spacing: -3px;
     transform: translateX(-10px);
     cursor: pointer;
 }
 
-.line:nth-child(2) {
+.text:nth-child(2) {
     letter-spacing: -2px;
     transform: translateX(60px);
     cursor: pointer;
 }
 
-.line:nth-child(3) {
+.text:nth-child(3) {
     letter-spacing: -4px;
     transform: translateX(-30px);
     cursor: pointer;
 }
 
 /* Text Hover Effects */
-.line {
+.text {
     transition: all 0.3s ease-in-out;
 }
 
-.line:hover {
+.text:hover {
     color: var(--highlight-color);
     transform: scale(1.1);
     letter-spacing: 2px;
@@ -210,7 +212,7 @@ body {
     font-weight: 500;
     line-height: 1.2;
     position: relative;
-    top: 37vh; /* Position below hero text */
+    top: 3vh; /* Position below hero text */
     left: 70vw;
     text-align: left;
 }
@@ -223,60 +225,42 @@ body {
 /* ============================== */
 /* TRAIN TRACK CONTAINER */
 /* ============================== */
+
+
 .train-track {
-    width: 100vw;
-    max-width: 100%;
+    width: 100vw;  /* Forces full width of viewport */
+    max-width: none;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(41, 39, 39);
     padding: 10px 0;
-    position: absolute;
-    bottom: 450px; /* Adjust position */
-    left: 0;
-    white-space: nowrap;
-    justify-content: center; /* Centers the train inside */
+    position: relative; /* Ensure it's relative */
+    margin-top: 200px; /* Move it lower */
     display: flex;
+    justify-content: flex-start; /* Aligns train to the left */
 }
 
 
-
-
-/* ============================== */
-/* TRAIN MOVEMENT */
-/* ============================== */
+/* TRAIN - EXPAND TO FULL WIDTH */
 .train {
     display: flex;
-    gap: 10px; /* Space between train cars */
-    animation: train-move 14s linear infinite; /* Continuous scrolling */
-    width: 100%; /* Ensures it takes up full width */
+    gap: 15px; /* Space between train cars */
+    width: 100%;  /* Forces train to take up full width */
+    min-width: 100vw; /* Prevents shrinking */
+    animation: train-move 20s linear infinite;
+    white-space: nowrap;
 }
 
 /* TRAIN CARRIAGES */
 .train-car {
-    background: #ffcc00; /* Carriages color */
+    background: #ffcc00;
     color: black;
-    padding: 10px 20px;
-    font-size: 1vw; /* Scales dynamically */
+    padding: 15px 25px;
+    font-size: 1.2vw;
     font-weight: bold;
     border-radius: 5px;
     white-space: nowrap;
     transition: transform 0.3s ease-in-out;
 }
-
-/* Adjustments for Ultra-Wide Screens (34-inch and above) */
-@media (min-width: 2560px) {
-    .train-track {
-        width: 100vw; /* Ensures full-width coverage */
-        max-width: 100%;
-    }
-    .train {
-        width: 100%; /* Full width train */
-    }
-    .train-car {
-        font-size: 1.2vw; /* Increase font size for better visibility */
-        padding: 15px 25px; /* Adjust padding for better appearance */
-    }
-}
-
 
 /* ============================== */
 /* TRAIN MOVEMENT */
@@ -409,23 +393,6 @@ body {
 /* RESPONSIVE MEDIA QUERIES */
 /* ============================== */
 
-/* Ultra-Wide Screens (34-inch and above) */
-@media (min-width: 2560px) {
-    .hero-text {
-        font-size: 4vw; /* Reduce font size */
-        max-width: 1000px;
-    }
-    .train-track {
-        max-width: 1400px;
-    }
-    .train-car {
-        font-size: 1.2vw;
-        padding: 12px 18px;
-    }
-    .about-container {
-        max-width: 1200px;
-    }
-}
 
 
 
@@ -450,3 +417,74 @@ body {
         width: 95%;
     }
 }
+/*For Ultrawide*/
+@media only screen and (min-width: 1201px){
+
+}
+
+@media only screen and (max-width: 1200px){
+
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* 2. Remove default margin & padding */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 3. Ensure full viewport height and prevent horizontal scrolling */
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevents unwanted horizontal scroll */
+    font-family: Arial, sans-serif; /* Ensures consistency */
+  }
+  
+  /* 4. Add accessible line-height & improve text rendering */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* 5. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* 6. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* 7. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* 8. Improve line wrapping for better readability */
+  p {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+  /* 9. Create a root stacking context */
+  #root, #__next {
+    isolation: isolate;
+  }
+  
+  /* 10. Standardize list styling */
+  ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
